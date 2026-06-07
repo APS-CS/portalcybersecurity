@@ -1,21 +1,13 @@
 <!DOCTYPE html>
-<!-- =================================================================
-     ARTIKELMALL
-     Kopiera den här filen, döp om den (t.ex. min-nya-artikel.html),
-     fyll i innehållet och lägg sedan till ett objekt i js/articles.js.
-     Byt ut allt som står inom [HAKPARENTESER].
-     ================================================================= -->
 <html lang="sv">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[ARTIKELNS TITEL] — Portal Cybersecurity</title>
-  <meta name="description" content="[KORT BESKRIVNING FÖR GOOGLE OCH DELNING]">
-
+  <title>Projektlogg: så byggde jag den här sajten säkert — Portal Cybersecurity</title>
+  <meta name="description" content="En genomgång av hur den här sajten är byggd och vilka säkerhetsval som ligger bakom — enkelhet som säkerhetsprincip.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <!-- OBS: ".." eftersom artiklar ligger i undermappen /artiklar/ -->
   <!-- Ikoner & mobilfärg -->
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../favicon.ico" sizes="32x32">
@@ -28,7 +20,6 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-
   <header class="site-header">
     <div class="container nav">
       <a class="logo" href="../index.html" aria-label="Portal Cybersecurity — startsida">
@@ -60,33 +51,34 @@
             Alla artiklar
           </a>
           <div class="article-meta">
-            <span class="tag">[KATEGORI]</span>
-            <span>[DATUM, t.ex. 7 jun 2026]</span>
+            <span class="tag">Projekt</span>
+            <span>10 maj 2026</span>
             <span>·</span>
-            <span>[X min]</span>
+            <span>4 min</span>
           </div>
-          <h1>[ARTIKELNS TITEL]</h1>
+          <h1>Projektlogg: så byggde jag den här sajten säkert</h1>
         </div>
       </div>
 
       <div class="container">
         <div class="prose">
-          <p>[Inledande stycke. Sammanfatta kort vad läsaren får ut av artikeln.]</p>
+          <p>Den här sajten är medvetet enkel — och det är ett säkerhetsval i sig. Här går jag igenom hur den är byggd och varför, för dig som är nyfiken på hur säkerhetstänk kan se ut i praktiken redan från grunden.</p>
 
-          <h2>[Underrubrik]</h2>
-          <p>[Brödtext. Du kan använda <strong>fet text</strong>, <a href="#">länkar</a> och <code>kod</code>.]</p>
+          <h2>Statisk sajt = mindre angreppsyta</h2>
+          <p>Sajten är byggd med ren HTML, CSS och lite JavaScript och ligger på GitHub Pages. Det finns ingen databas, inget inloggningssystem och ingen serverkod som kan utnyttjas. Färre rörliga delar betyder helt enkelt färre saker som kan gå sönder eller missbrukas.</p>
 
-          <ul>
-            <li>[Punkt ett]</li>
-            <li>[Punkt två]</li>
-          </ul>
+          <h2>HTTPS från start</h2>
+          <p>All trafik till och från besökare är krypterad via HTTPS. Det är i dag en självklarhet snarare än ett extra steg — men värt att alltid kontrollera att det faktiskt är påslaget.</p>
+
+          <h2>Inga onödiga beroenden</h2>
+          <p>Stora ramverk och tredjepartsskript är medvetet bortvalda. Varje extern kodbit man laddar in är något man måste lita på. Här laddas bara typsnitt från en känd källa — inget mer. Färre beroenden, mindre risk.</p>
 
           <div class="callout">
-            <p><strong>Tips:</strong> [En ruta för att lyfta fram något viktigt.]</p>
+            <p><strong>Principen:</strong> Säkerhet handlar ofta om att <em>ta bort</em> saker, inte lägga till. Det enklaste systemet som löser uppgiften är oftast också det säkraste.</p>
           </div>
 
-          <h2>[Nästa underrubrik]</h2>
-          <p>[Mer text …]</p>
+          <h2>Samma råd jag ger till kunder</h2>
+          <p>Att hålla saker enkla, förstå vad varje del gör och välja beprövade lösningar framför komplicerade genvägar — det är samma grundregler som gäller för en webbplats som för en hel verksamhet. Säkerhet behöver inte vara avancerat för att vara effektivt.</p>
         </div>
       </div>
     </article>
@@ -94,8 +86,8 @@
     <section class="cta-band" style="padding-top:4rem">
       <div class="container">
         <div class="cta-box">
-          <h2>Behöver du hjälp med just det här?</h2>
-          <p>Hör av dig för ett kostnadsfritt samtal så går vi igenom din situation tillsammans.</p>
+          <h2>Nyfiken på hur jag kan hjälpa dig?</h2>
+          <p>Hör av dig så pratar vi om din situation – helt förutsättningslöst.</p>
           <a class="btn btn-primary" href="../index.html#kontakt">Kontakta mig</a>
         </div>
       </div>
