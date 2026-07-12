@@ -1,0 +1,4 @@
+Contact: mailto:amosps@proton.me
+Canonical: https://github.com/APS-CS/portalcybersecurity/new/main/.well-known/security.txt
+Expires: 2027-07-11T00:00:00.000Z
+Preferred-Languages: sv, en
