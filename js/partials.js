@@ -71,7 +71,7 @@
       </div>
       <div class="footer-bottom">
         <span>© <span data-year></span> Portal Cybersecurity · Enskild firma, Sverige</span>
-        <span><a href="mailto:hej@portalcybersecurity.se">hej@portalcybersecurity.se</a></span>
+        <span><a href="mailto:amosps@proton.me">amosps@proton.me</a></span>
       </div>`);
 
   const footerArticle = footer(`
