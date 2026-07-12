@@ -6,7 +6,6 @@
      <div data-include="footer"></div>                        (full sidfot)
      <div data-include="footer" data-variant="article"></div> (enkel sidfot)
      <div data-include="cta" data-titel="..." data-text="..."></div>
-
    Sidor i /artiklar/ sätter <body data-base="../"> så länkar pekar rätt.
    Körs FÖRE main.js (se script-ordningen i varje sida).
    ================================================================= */
