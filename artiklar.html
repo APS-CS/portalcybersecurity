@@ -2,15 +2,14 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'; manifest-src 'self'; worker-src 'none'; media-src 'none'; upgrade-insecure-requests; require-trusted-types-for 'script'; trusted-types portal-html">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Artiklar — Portal Cybersecurity</title>
   <meta property="og:title" content="Artiklar — Portal Cybersecurity">
-  <meta property="og:image" content="og-image.png">
+  <meta property="og:image" content="https://aps-cs.github.io/portalcybersecurity/og-image.png">
   <meta name="description" content="Artiklar om cyberhygien, praktiska säkerhetstips och projektloggar från Portal Cybersecurity.">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <!-- Ikoner & mobilfärg -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon.ico" sizes="32x32">
@@ -22,32 +21,12 @@
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="container nav">
-      <a class="logo" href="index.html" aria-label="Portal Cybersecurity — startsida">
-        <img class="logo-img" src="bilder/logo.svg" alt="Portal Cybersecurity"></span>
-      </a>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="index.html#tjanster">Tjänster</a></li>
-          <li><a href="index.html#arbetssatt">Arbetssätt</a></li>
-          <li><a href="artiklar.html">Artiklar</a></li>
-          <li><a href="index.html#kontakt">Kontakt</a></li>
-        </ul>
-      </nav>
-      <div class="nav-actions">
-        <a class="btn btn-primary" href="index.html#kontakt">Boka ett samtal</a>
-        <button class="nav-toggle" aria-label="Öppna meny" aria-expanded="false">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
-      </div>
-    </div>
-  </header>
+  <div data-include="header"></div>
 
   <main>
-    <section style="padding-bottom:2.5rem">
+    <section class="articles-section">
       <div class="container">
-        <div class="section-head reveal" style="margin-bottom:2.5rem">
+        <div class="section-head reveal section-head--compact">
           <p class="eyebrow">Artiklar</p>
           <h2>Cyberhygien &amp; praktiska råd</h2>
           <p>Konkreta tips och loggar från egna projekt. Skrivet för att vara begripligt även om du inte jobbar med IT.</p>
@@ -58,26 +37,9 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-top">
-        <a class="logo" href="index.html">
-          <img class="logo-img" src="bilder/logo.svg" alt="Portal Cybersecurity"></span>
-        </a>
-        <nav class="footer-nav">
-          <a href="index.html#tjanster">Tjänster</a>
-          <a href="index.html#arbetssatt">Arbetssätt</a>
-          <a href="artiklar.html">Artiklar</a>
-          <a href="mailto:hej@portalcybersecurity.se">Kontakt</a>
-        </nav>
-      </div>
-      <div class="footer-bottom">
-        <span>© <span data-year></span> Portal Cybersecurity · Enskild firma, Sverige</span>
-        <span>hej@portalcybersecurity.se</span>
-      </div>
-    </div>
-  </footer>
+  <div data-include="footer"></div>
 
+  <script src="js/partials.js"></script>
   <script src="js/articles.js"></script>
   <script src="js/main.js"></script>
 </body>
