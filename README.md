@@ -17,8 +17,8 @@ och noll beroenden. Det som inte finns kan varken angripas, gå sönder eller
 läcka. Hela sajten är statiska filer som kan serveras var som helst.
 
 **2. Integritet på riktigt.** Inga kakor, ingen spårning, ingen besöksstatistik.
-Typsnitten är self-hostade i `fonts/` — inte ens ett typsnittsanrop lämnar den
-egna domänen när någon besöker sidorna. Detaljerna finns i
+Typografin använder besökarens egna systemtypsnitt — inga typsnittsfiler laddas
+ner över huvud taget, varken från oss eller någon tredje part. Detaljerna finns i
 [integritetspolicyn](integritetspolicy.html).
 
 **3. Enkelt att underhålla.** Gemensamma delar (sidhuvud, sidfot, CTA-band)
@@ -40,7 +40,7 @@ MITRE ATT&CK som utgångspunkt:
 | Strikt Content-Security-Policy på varje sida | Allt innehåll får bara laddas från egna domänen; `connect-src 'none'` gör att inte ens injicerad kod kan skicka data någonstans |
 | Trusted Types (`portal-html`-policy) | Webbläsaren blockerar all HTML-skrivning till DOM som inte går via sajtens egen policy — eliminerar DOM-XSS-klassen i stödda webbläsare |
 | Escaping + URL-validering (`esc`/`safeUrl` i `js/main.js`) | All artikeldata escapas innan rendering; endast `https:`/`mailto:` och relativa länkar släpps igenom |
-| Self-hostade typsnitt | Ingen leveranskedje-exponering mot tredje part och inget IP-läckage till typsnittsleverantörer |
+| Systemtypsnitt — inga typsnittsfiler | Besökaren laddar ingenting; CSP:n sätter `font-src 'none'` |
 | Referrer-Policy + clickjacking-spärr | Begränsar informationsläckage och inramning av sajten |
 | `_headers` | Färdigt HTTP-headerpaket (HSTS, X-Frame-Options m.m.) som aktiveras automatiskt vid drift på en host med header-stöd |
 | `.well-known/security.txt` + `SECURITY.md` | Tydlig kanal för att rapportera sårbarheter (RFC 9116) |
@@ -62,7 +62,6 @@ Hittar du ett säkerhetsproblem? Se [SECURITY.md](SECURITY.md).
 ├── artiklar/
 │   ├── _mall.html            ← Mall: kopiera denna för varje ny artikel
 │   └── *.html                ← Publicerade artiklar
-├── fonts/                    ← Self-hostade typsnitt (woff2)
 ├── bilder/                   ← Logotyper (SVG)
 ├── .well-known/security.txt  ← Säkerhetskontakt (RFC 9116)
 ├── _headers                  ← HTTP-säkerhetsheaders (för host med header-stöd)
