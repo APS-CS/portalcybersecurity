@@ -2,6 +2,105 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'none'; img-src 'self'; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'; manifest-src 'self'; worker-src 'none'; media-src 'none'; upgrade-insecure-requests; require-trusted-types-for 'script'; trusted-types portal-html">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 cyberhygien-vanor som skyddar ditt företag — Portal Cybersecurity</title>
+  <meta name="description" content="Fem enkla cyberhygien-vanor som stoppar de vanligaste angreppen mot småföretag – utan dyra verktyg eller IT-avdelning.">
+
+  <!-- Ikoner & mobilfärg -->
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
+  <meta name="theme-color" content="#0d2d5e">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://aps-cs.github.io/portalcybersecurity/og-image.png">
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-base="../">
+
+  <div data-include="header"></div>
+
+  <main>
+    <article>
+      <div class="article-hero">
+        <div class="container">
+          <a class="back-link" href="../artiklar.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+            Alla artiklar
+          </a>
+          <div class="article-meta">
+            <span class="tag">Cyberhygien</span>
+            <span>5 jun 2026</span>
+            <span>·</span>
+            <span>6 min</span>
+          </div>
+          <h1>5 cyberhygien-vanor som skyddar ditt företag</h1>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="prose">
+          <p>De flesta intrång mot småföretag handlar inte om avancerade hackare i en mörk källare. De handlar om gissade lösenord, ett klick på fel mejl eller en gammal app som aldrig uppdaterats. Den goda nyheten: just därför går de flesta att stoppa med enkla vanor. Här är fem som ger mest skydd för minst ansträngning.</p>
+
+          <h2>1. Använd en lösenordshanterare</h2>
+          <p>Det viktigaste du kan göra är att sluta återanvända lösenord. När ett enda läcker ut – vilket händer hela tiden – kan angripare prova samma lösenord på dina andra konton. En lösenordshanterare skapar och kommer ihåg unika, starka lösenord åt dig, så att du bara behöver minnas ett enda huvudlösenord.</p>
+          <div class="callout">
+            <p><strong>Kom igång:</strong> Bitwarden och 1Password är två trygga val. Jag har skrivit en separat guide om hur du kommer igång på 20 minuter.</p>
+          </div>
+
+          <h2>2. Slå på tvåfaktorsinloggning (2FA)</h2>
+          <p>Tvåfaktorsinloggning innebär att en angripare inte kommer in enbart med ditt lösenord – det krävs också en kod eller en bekräftelse i din telefon. Slå på det överallt där det går, men prioritera:</p>
+          <ul>
+            <li>E-post (din e-post är nyckeln till alla andra konton)</li>
+            <li>Internetbank och bokföring</li>
+            <li>Sociala medier och domän-/webbhotellskonton</li>
+          </ul>
+          <p>Använd helst en autentiseringsapp eller en fysisk säkerhetsnyckel istället för SMS-koder, som är något lättare att kringgå.</p>
+
+          <h2>3. Håll allt uppdaterat</h2>
+          <p>Uppdateringar är inte bara nya funktioner – de täpper till säkerhetshål som angripare aktivt letar efter. Sätt på automatiska uppdateringar för operativsystem, webbläsare, appar och telefon. Den där uppskjutna uppdateringen är ofta exakt den lucka någon försöker utnyttja.</p>
+
+          <h2>4. Ta backup – och testa att den fungerar</h2>
+          <p>Om en dator blir stulen eller drabbas av utpressningsvirus (ransomware) är en fungerande backup skillnaden mellan en dålig dag och en katastrof. En bra tumregel är <strong>3-2-1</strong>:</p>
+          <ul>
+            <li><strong>3</strong> kopior av viktig data</li>
+            <li><strong>2</strong> olika lagringsplatser (t.ex. dator + moln)</li>
+            <li><strong>1</strong> kopia på en annan fysisk plats</li>
+          </ul>
+          <p>Och viktigast av allt: testa då och då att du faktiskt kan återställa filerna. En backup du aldrig provat är bara en förhoppning.</p>
+
+          <h2>5. Lär dig känna igen nätfiske</h2>
+          <p>Nätfiske (phishing) är fortfarande den vanligaste vägen in. Var extra vaksam när ett meddelande skapar <strong>brådska</strong> eller <strong>oro</strong> – "ditt konto spärras", "betala denna faktura idag". Stanna upp och kontrollera:</p>
+          <ul>
+            <li>Stämmer avsändaradressen, eller är den nästan rätt?</li>
+            <li>Leder länken dit den påstår? (Håll muspekaren över utan att klicka.)</li>
+            <li>Ber någon dig kringgå era vanliga rutiner?</li>
+          </ul>
+          <p>Vid minsta tvekan: kontakta avsändaren via en kanal du själv valt, inte genom att svara på meddelandet.</p>
+
+          <div class="callout">
+            <p><strong>Slutsats:</strong> Du behöver inte göra allt på en gång. Börja med lösenordshanterare och 2FA på din e-post idag – då har du redan stängt de två vanligaste dörrarna in.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <div data-include="cta" data-titel="Vill du ha hjälp att komma igång?" data-text="Boka ett kostnadsfritt samtal så går vi igenom din situation och hittar de första stegen tillsammans."></div>
+  </main>
+
+  <div data-include="footer" data-variant="article"></div>
+
+  <script src="../js/partials.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'; manifest-src 'self'; worker-src 'none'; media-src 'none'; upgrade-insecure-requests; require-trusted-types-for 'script'; trusted-types portal-html">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
