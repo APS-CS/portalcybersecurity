@@ -62,7 +62,8 @@ Hittar du ett säkerhetsproblem? Se [SECURITY.md](SECURITY.md).
 ├── artiklar/
 │   ├── _mall.html            ← Mall: kopiera denna för varje ny artikel
 │   └── *.html                ← Publicerade artiklar
-├── bilder/                   ← Logotyper (SVG)
+├── bilder/                   ← ALLA bilder: logotyper, favicon, ikoner, delningsbild
+├── site.webmanifest          ← PWA-manifest (ikonsökvägar pekar in i bilder/)
 ├── .well-known/security.txt  ← Säkerhetskontakt (RFC 9116)
 ├── .htaccess                 ← Apache-konfiguration: headers, blockeringar, cache
 ├── 404.html                  ← Egen felsida (rotabsoluta länkar, fungerar på alla djup)
@@ -128,4 +129,10 @@ Skriv aldrig HTML till DOM utanför `tt()`-policyn och lägg aldrig
 Färgerna ligger som variabler överst i `css/style.css` (marinblå `--navy` som
 primär, babyblå `--babyblue` som accent). Logotypvarianterna finns i `bilder/`
 (`logo.svg` horisontell, `logo-stacked.svg` stående, `logo-icon.svg` enbart
-symbolen). Ikoner, delningsbild och webbmanifest ligger i rotmappen.
+symbolen). Samtliga bilder ligger i `bilder/` — även favicon, PWA-ikoner och
+delningsbilden `og-image.png`.
+
+Lägger du till en bild: referera den relativt (`bilder/...` från roten,
+`../bilder/...` från en artikel) eller rotabsolut (`/bilder/...`) på felsidan.
+Sökvägarna i `site.webmanifest` tolkas relativt manifestets plats i roten,
+alltså `bilder/ikon.png` utan inledande snedstreck.
