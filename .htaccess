@@ -1,0 +1,101 @@
+# =================================================================
+# PORTAL CYBERSECURITY — APACHE-KONFIGURATION (Loopia UNIX / Apache 2.4)
+# =================================================================
+# OBS: Loopias servrar saknar mod_filter. Använd ALDRIG
+# AddOutputFilterByType här — gzip/Brotli är redan påslaget.
+# Allt nedan är inkapslat i <IfModule> så att en saknad modul ger
+# tyst degradering i stället för HTTP 500.
+# =================================================================
+
+# ---------- 1. Ingen kataloglistning ----------
+# Apache listar annars innehållet i /js/, /css/ och /bilder/.
+Options -Indexes
+
+# ---------- 2. Egen felsida ----------
+ErrorDocument 404 /404.html
+
+# ---------- 3. Teckenkodning ----------
+AddDefaultCharset UTF-8
+AddType text/plain .txt
+
+# ---------- 4. Blockera filer som inte ska nås ----------
+# Dolda filer (.htaccess, .git, .env). Filer i /.well-known/ berörs
+# inte, eftersom regeln matchar filnamnet och inte katalogen.
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# Utvecklingsfiler som inte hör hemma på en publik server.
+<FilesMatch "^(_config\.yml|_headers|README\.md|SECURITY\.md|\.nojekyll)$">
+  Require all denied
+</FilesMatch>
+
+# Artikelmallen — publiceras inte längre av Jekyll här.
+<Files "_mall.html">
+  Require all denied
+</Files>
+
+# ---------- 5. Säkerhetsheaders ----------
+<IfModule mod_headers.c>
+  # Full CSP. Skillnaden mot meta-taggen är frame-ancestors, som
+  # bara kan sättas via HTTP-header.
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; font-src 'none'; img-src 'self'; connect-src 'none'; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'; manifest-src 'self'; worker-src 'none'; media-src 'none'; upgrade-insecure-requests; require-trusted-types-for 'script'; trusted-types portal-html"
+
+  Header always set X-Frame-Options "DENY"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), midi=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set Cross-Origin-Resource-Policy "same-origin"
+
+  # HSTS — START HÄR (5 minuter). Se README-LOOPIA.md innan du höjer.
+  # includeSubDomains och preload är MEDVETET utelämnade eftersom
+  # subdomäner planeras. Läs varningen innan du lägger till dem.
+  Header always set Strict-Transport-Security "max-age=300"
+
+  # Ta bort headers som avslöjar plattformsdetaljer.
+  Header always unset X-Powered-By
+  Header unset X-Powered-By
+</IfModule>
+
+# ---------- 6. Indexering: bara sidorna i sitemap.xml ----------
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|svg|webmanifest|json)$">
+    Header always set X-Robots-Tag "noindex"
+  </FilesMatch>
+  <FilesMatch "^(logo|logo-icon|logo-stacked|favicon|icon-192|icon-512|apple-touch-icon)\.">
+    Header always set X-Robots-Tag "noindex"
+  </FilesMatch>
+</IfModule>
+
+# security.txt ska serveras som ren text.
+<Files "security.txt">
+  ForceType text/plain
+  <IfModule mod_headers.c>
+    Header always set X-Robots-Tag "noindex"
+    Header always set Content-Type "text/plain; charset=utf-8"
+  </IfModule>
+</Files>
+
+# ---------- 7. Tvinga HTTPS och en enda kanonisk domän ----------
+# Rekommendation: slå hellre på "Tvinga SSL" i Loopia Kundzon och
+# lämna detta block bortkommenterat. Loopia terminerar TLS i en
+# proxy, så %{HTTPS} är opålitligt — därav X-Loopia-SSL.
+#
+# <IfModule mod_rewrite.c>
+#   RewriteEngine On
+#   RewriteCond %{HTTP:X-Loopia-SSL} off
+#   RewriteRule ^(.*)$ https://portalcs.se/$1 [R=301,L]
+#   RewriteCond %{HTTP_HOST} ^www\.portalcs\.se$ [NC]
+#   RewriteRule ^(.*)$ https://portalcs.se/$1 [R=301,L]
+# </IfModule>
+
+# ---------- 8. Cachning ----------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+</IfModule>
