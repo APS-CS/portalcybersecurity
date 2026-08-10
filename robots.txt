@@ -1,0 +1,5 @@
+# Endast sidorna i sitemap.xml är avsedda att indexeras.
+User-agent: *
+Allow: /
+
+Sitemap: https://portalcs.se/sitemap.xml
