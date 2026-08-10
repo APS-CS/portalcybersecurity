@@ -42,7 +42,7 @@ MITRE ATT&CK som utgångspunkt:
 | Escaping + URL-validering (`esc`/`safeUrl` i `js/main.js`) | All artikeldata escapas innan rendering; endast `https:`/`mailto:` och relativa länkar släpps igenom |
 | Systemtypsnitt — inga typsnittsfiler | Besökaren laddar ingenting; CSP:n sätter `font-src 'none'` |
 | Referrer-Policy + clickjacking-spärr | Begränsar informationsläckage och inramning av sajten |
-| `_headers` | Färdigt HTTP-headerpaket (HSTS, X-Frame-Options m.m.) som aktiveras automatiskt vid drift på en host med header-stöd |
+| `.htaccess` | HTTP-säkerhetsheaders (HSTS, `frame-ancestors`, `nosniff` m.m.), blockering av interna filer och avstängd kataloglistning — aktiv i produktion på Loopia (Apache 2.4) |
 | `.well-known/security.txt` + `SECURITY.md` | Tydlig kanal för att rapportera sårbarheter (RFC 9116) |
 
 Hittar du ett säkerhetsproblem? Se [SECURITY.md](SECURITY.md).
@@ -64,10 +64,23 @@ Hittar du ett säkerhetsproblem? Se [SECURITY.md](SECURITY.md).
 │   └── *.html                ← Publicerade artiklar
 ├── bilder/                   ← Logotyper (SVG)
 ├── .well-known/security.txt  ← Säkerhetskontakt (RFC 9116)
-├── _headers                  ← HTTP-säkerhetsheaders (för host med header-stöd)
-├── .nojekyll                 ← Publicera filerna råa, utan Jekyll-behandling
-└── SECURITY.md               ← Hur sårbarheter rapporteras
+├── .htaccess                 ← Apache-konfiguration: headers, blockeringar, cache
+├── 404.html                  ← Egen felsida (rotabsoluta länkar, fungerar på alla djup)
+├── robots.txt                ← Indexeringsregler + pekare till sitemap
+├── sitemap.xml               ← De sidor som ska indexeras — inget annat
+└── SECURITY.md               ← Hur sårbarheter rapporteras (endast repo, laddas ej upp)
 ```
+
+## Drift
+
+Sajten driftas på **Loopia** (UNIX-plattformen, Apache 2.4) under
+**portalcs.se**. Det här repot är enbart versionshantering — GitHub
+publicerar ingenting.
+
+Vid uppdatering: ladda upp ändrade filer till `public_html/` via Loopias
+filhanterare eller SFTP. Tre filer hör hemma i repot men ska **inte**
+laddas upp: `README.md`, `SECURITY.md` och `artiklar/_mall.html`
+(`.htaccess` blockerar dem som skyddsnät om de ändå råkar följa med).
 
 ## Köra lokalt
 
