@@ -16,7 +16,10 @@
   const tt = (s) => (policy ? policy.createHTML(s) : s);
   window.PortalTT = tt; // delas med main.js
 
-  const base = document.body.dataset.base === '../' ? '../' : '';
+  // Tillåten bas: '' (rot), '../' (artiklar) eller '/' (felsidor som
+  // kan serveras på valfritt djup, t.ex. 404). Annat faller tillbaka till ''.
+  const base = ['../','/'].includes(document.body.dataset.base)
+    ? document.body.dataset.base : '';
 
   // Meny — en enda källa för både topp- och sidfotsnavigering.
   const NAV = [
@@ -70,7 +73,7 @@
       </div>
       <div class="footer-bottom">
         <span>© <span data-year></span> Portal Cybersecurity · Enskild firma, Sverige</span>
-        <span><a href="mailto:amosps@proton.me">amosps@proton.me</a></span>
+        <span><a href="mailto:portalcs@pm.me">portalcs@pm.me</a></span>
       </div>`);
 
   const footerArticle = footer(`
@@ -94,7 +97,7 @@
     const a = document.createElement('a');
     a.className = 'btn btn-primary';
     a.href = base + 'index.html#kontakt';
-    a.textContent = 'Kontakta mig';
+    a.textContent = 'Kontakta oss';
 
     const box = document.createElement('div'); box.className = 'cta-box'; box.append(h2, p, a);
     const cont = document.createElement('div'); cont.className = 'container'; cont.append(box);
