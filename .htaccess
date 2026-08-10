@@ -14,11 +14,23 @@ Options -Indexes
 # ---------- 2. Egen felsida ----------
 ErrorDocument 404 /404.html
 
-# ---------- 3. Teckenkodning ----------
+# ---------- 3. Rotfallback för ikoner ----------
+# Alla bilder ligger i /bilder/, men vissa klienter hämtar dessa
+# sökvägar direkt från domänroten utan att läsa HTML-taggarna:
+# webbläsare och RSS-läsare tar /favicon.ico, iOS tar
+# /apple-touch-icon.png. Utan raderna nedan blir det 404 i loggen.
+<IfModule mod_alias.c>
+  RedirectMatch 301 ^/favicon\.ico$ /bilder/favicon.ico
+  RedirectMatch 301 ^/favicon\.svg$ /bilder/favicon.svg
+  RedirectMatch 301 ^/apple-touch-icon(-precomposed)?\.png$ /bilder/apple-touch-icon.png
+  RedirectMatch 301 ^/og-image\.png$ /bilder/og-image.png
+</IfModule>
+
+# ---------- 4. Teckenkodning ----------
 AddDefaultCharset UTF-8
 AddType text/plain .txt
 
-# ---------- 4. Blockera filer som inte ska nås ----------
+# ---------- 5. Blockera filer som inte ska nås ----------
 # Dolda filer (.htaccess, .git, .env). Filer i /.well-known/ berörs
 # inte, eftersom regeln matchar filnamnet och inte katalogen.
 <FilesMatch "^\.">
@@ -35,10 +47,9 @@ AddType text/plain .txt
   Require all denied
 </Files>
 
-# ---------- 5. Säkerhetsheaders ----------
+# ---------- 6. Säkerhetsheaders ----------
 <IfModule mod_headers.c>
-  # Full CSP. Skillnaden mot meta-taggen är frame-ancestors, som
-  # bara kan sättas via HTTP-header.
+  # Full CSP.
   Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; font-src 'none'; img-src 'self'; connect-src 'none'; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'; manifest-src 'self'; worker-src 'none'; media-src 'none'; upgrade-insecure-requests; require-trusted-types-for 'script'; trusted-types portal-html"
 
   Header always set X-Frame-Options "DENY"
@@ -58,7 +69,7 @@ AddType text/plain .txt
   Header unset X-Powered-By
 </IfModule>
 
-# ---------- 6. Indexering: bara sidorna i sitemap.xml ----------
+# ---------- 7. Indexering: bara sidorna i sitemap.xml ----------
 <IfModule mod_headers.c>
   <FilesMatch "\.(js|css|svg|webmanifest|json)$">
     Header always set X-Robots-Tag "noindex"
@@ -77,7 +88,7 @@ AddType text/plain .txt
   </IfModule>
 </Files>
 
-# ---------- 7. Tvinga HTTPS och en enda kanonisk domän ----------
+# ---------- 8. Tvinga HTTPS och en enda kanonisk domän ----------
 # Rekommendation: slå hellre på "Tvinga SSL" i Loopia Kundzon och
 # lämna detta block bortkommenterat. Loopia terminerar TLS i en
 # proxy, så %{HTTPS} är opålitligt — därav X-Loopia-SSL.
@@ -90,7 +101,7 @@ AddType text/plain .txt
 #   RewriteRule ^(.*)$ https://portalcs.se/$1 [R=301,L]
 # </IfModule>
 
-# ---------- 8. Cachning ----------
+# ---------- 9. Cachning ----------
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/html "access plus 0 seconds"
