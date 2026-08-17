@@ -295,11 +295,96 @@ section { padding: clamp(72px, 11vw, 132px) 0; }
   .nav-actions .btn { display: none; }
 }
 
+/* ===================== Tjänsterail ===================== */
 
-/* ===================== LAYOUT-HJÄLPKLASSER =====================
+.rail-nav{
+  display:flex;
+  justify-content:flex-end;
+  gap:.5rem;
+  margin:1.5rem 0 0;          /* knapparna ligger under railen */
+}
+
+.rail-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:2.75rem;
+  height:2.75rem;
+  padding:0;
+  border:1px solid var(--babyblue);
+  border-radius:50%;
+  background:transparent;
+  color:var(--navy);
+  cursor:pointer;
+  transition:background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+.rail-btn svg{ width:1.15rem; height:1.15rem; }
+.rail-btn:hover{ background:var(--navy); color:var(--accent-ink); border-color:var(--navy); }
+.rail-btn:focus-visible{ outline:2px solid var(--navy); outline-offset:3px; }
+
+.icon-play{ display:none; }
+[data-rail-state="paused"] .icon-play{ display:block; }
+[data-rail-state="paused"] .icon-pause{ display:none; }
+
+.rail-viewport{
+  overflow:hidden;
+  cursor:grab;
+  touch-action:pan-y;
+  contain:layout paint;
+  -webkit-mask-image:linear-gradient(to right, transparent 0, #000 3rem, #000 calc(100% - 3rem), transparent 100%);
+          mask-image:linear-gradient(to right, transparent 0, #000 3rem, #000 calc(100% - 3rem), transparent 100%);
+}
+.rail-viewport:focus-visible{ outline:2px solid var(--babyblue); outline-offset:4px; }
+[data-rail-drag] .rail-viewport{ cursor:grabbing; }
+
+/* Specificitet 0,3,0 + explicita nollställningar, så varken
+   .services-griden eller mediefrågan vid 820px kan bryta raden. */
+.rail-viewport .services.services-rail{
+  display:flex;
+  flex-direction:row;
+  flex-wrap:nowrap;
+  align-items:stretch;
+  justify-content:flex-start;
+  gap:1.5rem;
+  grid-template-columns:none;
+  grid-template-rows:none;
+  padding:0;
+  margin:0;
+  width:auto;
+  max-width:none;
+  min-width:0;
+  will-change:transform;
+  user-select:none;
+}
+
+.rail-viewport .services.services-rail > .service{
+  flex-grow:0;
+  flex-shrink:0;
+  flex-basis:clamp(15rem, 78vw, 20rem);
+  width:auto;
+  max-width:none;
+  min-width:0;
+  margin:0;
+  padding:2.2rem 1.5rem 2.2rem 0;
+  grid-column:auto;
+  grid-row:auto;
+}
+
+.services.services-rail svg,
+.services.services-rail img{
+  pointer-events:none;
+  -webkit-user-drag:none;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .rail-viewport .services.services-rail{ will-change:auto; }
+}
+
+
+/* ===================== LAYOUT-HJÄLPKLASSER ===================== */
 .articles-section      { padding-bottom: 2.5rem; }
 .section-head--compact { margin-bottom: 2.5rem; }
 .articles-more         { margin-top: 2.5rem; }
 .cta-band              { padding-top: 4rem; }
 .footer-bottom--bare   { border-top: 0; padding-top: 0; }
-.articles-empty        { color: var(--muted); padding: 1.8rem 0; }
+.articles-empty        { color: var(--muted); padding: 1.8rem 0; } 

@@ -5,10 +5,10 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'none'; img-src 'self'; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'; manifest-src 'self'; worker-src 'none'; media-src 'none'; upgrade-insecure-requests; require-trusted-types-for 'script'; trusted-types portal-html">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portal Cybersecurity — Praktisk cybersäkerhet för småföretag</title>
-  <meta name="description" content="Portal Cybersecurity hjälper småföretag och privatpersoner med praktisk cybersäkerhet. Tydliga råd och konkreta steg, anpassade efter din vardag.">
+  <title>Portal Cybersecurity — Praktisk cybersäkerhet för företag</title>
+  <meta name="description" content="Portal Cybersecurity hjälper företag och privatpersoner med praktisk cybersäkerhet. Tydliga råd och konkreta steg, anpassade efter din vardag.">
   <meta property="og:title" content="Portal Cybersecurity">
-  <meta property="og:description" content="Praktisk cybersäkerhet för småföretag och privatpersoner.">
+  <meta property="og:description" content="Praktisk cybersäkerhet för företag och privatpersoner.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://portalcs.se/bilder/og-image.png">
 
@@ -29,9 +29,9 @@
     <!-- HERO -->
     <section class="hero">
       <div class="container">
-        <p class="eyebrow reveal">Cybersäkerhet för småföretag</p>
+        <p class="eyebrow reveal">Cybersäkerhet för företag</p>
         <h1 class="reveal">Trygg digital vardag.</h1>
-        <p class="lead reveal">Portal Cybersecurity hjälper dig att skydda din verksamhet mot de vanligaste hoten — med tydliga råd och konkreta steg, anpassade efter din vardag.</p>
+        <p class="lead reveal">Portal Cybersecurity hjälper dig att skydda din verksamhet med tydliga råd och konkreta steg, anpassade efter din vardag.</p>
         <div class="hero-cta reveal">
           <a class="btn btn-primary" href="#kontakt">Boka ett samtal</a>
           <a class="link-arrow" href="#tjanster">Se vad vi erbjuder
@@ -45,28 +45,68 @@
 
     <!-- TJÄNSTER -->
     <section id="tjanster">
-      <div class="container">
+      <div class="container" data-rail data-rail-speed="35">
+
         <div class="section-head reveal">
           <p class="eyebrow">Tjänster</p>
           <h2>Säkerhet som är enkel att förstå</h2>
         </div>
-        <div class="services">
-          <article class="service reveal">
-            <span class="num">01</span>
-            <h3>Säkerhetsgenomgång</h3>
-            <p>En kartläggning av konton, enheter, lösenord och backup. Du får en prioriterad lista på vad som bör åtgärdas först.</p>
-          </article>
-          <article class="service reveal">
-            <span class="num">02</span>
-            <h3>Lösenord &amp; inloggning</h3>
-            <p>Hjälp att komma igång med lösenordshanterare och tvåfaktorsinloggning — ett av de mest effektiva skydden mot kapade konton.</p>
-          </article>
-          <article class="service reveal">
-            <span class="num">03</span>
-            <h3>Backup &amp; nätfiske</h3>
-            <p>Rutiner för säkerhetskopiering och vägledning i att känna igen bluffmejl, så att ett enda klick inte slår ut verksamheten.</p>
-          </article>
+
+        <div class="rail-viewport" data-rail-viewport tabindex="0" role="group" aria-label="Våra tjänster">
+          <div class="services services-rail" data-rail-track>
+
+            <article class="service">
+              <span class="num">01</span>
+              <h3>Säkerhetsgenomgång</h3>
+              <p>Vi går igenom konton, information, leverantörer och beredskap och ger er en prioriterad lista på vad som bör åtgärdas först.</p>
+            </article>
+
+            <article class="service">
+              <span class="num">02</span>
+              <h3>NIS2 och cybersäkerhetslagen</h3>
+              <p>Omfattas ni av lagen? Vi reder ut det, jämför mot kraven och tar fram en plan för det som saknas.</p>
+            </article>
+
+            <article class="service">
+              <span class="num">03</span>
+              <h3>Informationsklassning</h3>
+              <p>Vilken information är känslig, och vem ska komma åt den? Vi sätter en modell som går att använda i vardagen.</p>
+            </article>
+
+            <article class="service">
+              <span class="num">04</span>
+              <h3>Kontinuitet och incidenthantering</h3>
+              <p>Frågan är inte om något går sönder, utan hur snabbt ni är igång igen. Vi tar fram planerna och testar dem innan de behövs.</p>
+            </article>
+
+            <article class="service">
+              <span class="num">05</span>
+              <h3>Policyer och rutiner</h3>
+              <p>Styrande dokument som beskriver hur ni faktiskt arbetar, inte hyllvärmare. Konkreta och möjliga att följa.</p>
+            </article>
+
+            <article class="service">
+              <span class="num">06</span>
+              <h3>Säkerhetskrav vid inköp</h3>
+              <p>Vi hjälper er ställa rätt krav på leverantörer och system, och att följa upp att kraven faktiskt uppfylls.</p>
+            </article>
+
+          </div>
         </div>
+
+        <div class="rail-nav reveal">
+          <button class="rail-btn" type="button" data-rail-prev aria-label="Bläddra bakåt">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="rail-btn" type="button" data-rail-toggle aria-pressed="false" aria-label="Pausa eller återuppta bläddringen">
+            <svg class="icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg>
+            <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M7 4.5l13 7.5-13 7.5z"/></svg>
+          </button>
+          <button class="rail-btn" type="button" data-rail-next aria-label="Bläddra framåt">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        
       </div>
     </section>
 
@@ -119,7 +159,7 @@
         <p class="eyebrow reveal">Kontakt</p>
         <h2 class="reveal">Vill du komma igång?</h2>
         <p class="reveal">Boka ett samtal så går vi igenom dina behov tillsammans.</p>
-        <div class="reveal"><a class="btn btn-primary" href="mailto:portalcs@pm.me">Skicka ett mejl</a></div>
+        <div class="reveal"><a class="btn btn-primary" href="mailto:info@portalcs.se">Skicka ett mejl</a></div>
       </div>
     </section>
   </main>

@@ -69,11 +69,12 @@
         <nav class="footer-nav">
           ${navLinks('a')}
           <a href="${base}integritetspolicy.html">Integritetspolicy</a>
+          <a href="${base}security-policy.html">Säkerhetspolicy</a>
         </nav>
       </div>
       <div class="footer-bottom">
         <span>© <span data-year></span> Portal Cybersecurity · Enskild firma, Sverige</span>
-        <span><a href="mailto:portalcs@pm.me">portalcs@pm.me</a></span>
+        <span><a href="mailto:info@portalcs.se">info@portalcs.se</a></span>
       </div>`);
 
   const footerArticle = footer(`
