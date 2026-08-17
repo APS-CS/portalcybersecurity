@@ -83,16 +83,6 @@ filhanterare eller SFTP. Tre filer hör hemma i repot men ska **inte**
 laddas upp: `README.md`, `SECURITY.md` och `artiklar/_mall.html`
 (`.htaccess` blockerar dem som skyddsnät om de ändå råkar följa med).
 
-## Köra lokalt
-
-Sajten måste köras via en webbserver (CSP, typsnitt och partials fungerar inte
-om `index.html` öppnas direkt från filsystemet):
-
-```bash
-python3 -m http.server 8000
-# öppna http://localhost:8000
-```
-
 ## Lägga till en artikel
 
 1. **Kopiera mallen.** Duplicera `artiklar/_mall.html`, döp om den
