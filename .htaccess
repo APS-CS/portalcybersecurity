@@ -30,7 +30,6 @@ ErrorDocument 500 /404.html
   RedirectMatch 301 ^/apple-touch-icon(-precomposed)?\.png$ /bilder/apple-touch-icon.png
   RedirectMatch 301 ^/og-image\.png$ /bilder/og-image.png
   RedirectMatch 301 ^/(artiklar|integritetspolicy|leverantorsinfo|sarbarhetsrapportering)$ /$1.html
-  RedirectMatch 301 ^/index\.html$ /
   RedirectMatch 301 ^/artiklar/$ /artiklar.html
   RedirectMatch 404 ^/(js|css|bilder)/?$
 </IfModule>
