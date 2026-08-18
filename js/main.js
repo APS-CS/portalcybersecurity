@@ -20,7 +20,7 @@ const safeUrl = (raw) => {
   return u;
 };
 
-const tt = window.PortalTT || ((s) => s);
+const tt = (typeof window.PortalTT === 'function') ? window.PortalTT : ((s) => s);
 
 const ARTIKELLISTA = (typeof ARTIKLAR !== 'undefined' && Array.isArray(ARTIKLAR)) ? ARTIKLAR : null;
 

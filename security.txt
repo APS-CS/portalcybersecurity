@@ -1,6 +1,0 @@
-Contact: mailto:info@portalcs.se
-Expires: 2027-04-16T00:00:00.000Z
-Preferred-Languages: sv, en
-Canonical: https://portalcs.se/.well-known/security.txt
-Policy: https://portalcs.se/SECURITY.md
-Encryption: https://portalcs.se/pgp-key.txt

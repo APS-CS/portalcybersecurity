@@ -8,10 +8,10 @@
 const ARTIKLAR = [
   {
     titel:    "AI-drivna cyberhot: vad IVA:s rapport betyder för er",
-   utdrag:   "IVA:s rapport pekar på att AI framför allt förändrar takten och skalan i cyberangrepp. Här är vad det betyder och fem saker att börja med.",
+    utdrag:   "IVA:s rapport pekar på att AI framför allt förändrar takten och skalan i cyberangrepp. Här är vad det betyder och fem saker att börja med.",
     kategori: "Cyberhot",
     datum:    "2026-08-16",
-  lasetid:  "4 min",
+    lasetid:  "4 min",
     url:      "artiklar/ai-drivna-cyberhot-iva-rapport.html"
   },
   {
@@ -38,9 +38,9 @@ const ARTIKLAR = [
     lasetid: "5 min",
     url: "artiklar/losenordshanterare-kom-igang.html"
   },
-    {
-    titel: "Miljödata-läckan: uppgifterna finns kvar och det gör råden också",
-    utdrag: "Över 1,5 miljoner svenskars personuppgifter publicerades på darknet. Läckta uppgifter går inte att ta tillbaka här är sex steg som minskar risken att de används mot dig.",
+  {
+    titel: "Miljödata-läckan: Uppgifterna finns kvar och det gör råden också",
+    utdrag: "Över 1,5 miljoner svenskars personuppgifter publicerades på darknet. Läckta uppgifter går inte att ta tillbaka, här är sex steg som minskar risken att de används mot dig.",
     kategori: "Cyberhygien",
     datum: "2026-05-20",
     lasetid: "5 min",
@@ -48,7 +48,7 @@ const ARTIKLAR = [
   },
   {
     titel: "Projektlogg: så byggde jag den här sajten säkert",
-    utdrag: "En genomgång av hur sajten är uppbyggd och vilka säkerhetsval som ligger bakom — enkelhet som säkerhetsprincip.",
+    utdrag: "En genomgång av hur sajten är uppbyggd och vilka säkerhetsval som ligger bakom.",
     kategori: "Projekt",
     datum: "2026-05-10",
     lasetid: "4 min",

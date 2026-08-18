@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'none'; img-src 'self'; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'; manifest-src 'self'; worker-src 'none'; media-src 'none'; upgrade-insecure-requests; require-trusted-types-for 'script'; trusted-types portal-html">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sårbarhetsrapportering – PortalCS</title>
+<meta name="description" content="Så rapporterar du en sårbarhet på portalcs.se. Vad som omfattas, vad du har tillstånd att göra, hur du rapporterar och vad du kan förvänta dig av oss.">
+<meta property="og:title" content="Sårbarhetsrapportering — Portal Cybersecurity">
+<meta property="og:description" content="Så rapporterar du en sårbarhet på portalcs.se.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://portalcs.se/bilder/og-image.png">
+<!-- Ikoner & mobilfärg -->
+<link rel="icon" href="bilder/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="bilder/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="bilder/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#0d2d5e">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div data-include="header"></div>
+<main>
+<article>
+<div class="article-hero">
+<div class="container">
+<a class="back-link" href="index.html">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+Till startsidan
+</a>
+<div class="article-meta">
+<span class="tag">Säkerhet</span>
+<span>Senast uppdaterad 18 augusti 2026</span>
+</div>
+<h1>Sårbarhetsrapportering</h1>
+</div>
+</div>
+<div class="container">
+<div class="prose">
+
+<p>Har du hittat ett säkerhetsproblem på webbplatsen vill vi veta det. Sidan beskriver på vilka villkor du får undersöka portalcs.se och rapportera det du hittar. Den tar upp vad som omfattas, vad du har tillstånd att göra, hur du rapporterar och vad du kan förvänta dig av oss.</p>
+
+<p>Den här sidan är den gällande versionen och den som <a href="/.well-known/security.txt">security.txt</a> hänvisar till. Datum för senaste ändring står högst upp.</p>
+
+<h2>Vad som omfattas</h2>
+
+<p>Villkoren gäller webbplatsen <strong>portalcs.se</strong>, det vill säga det innehåll och den konfiguration som vi själva förfogar över.</p>
+
+<p>Vad vi åtar oss i ett uppdrag regleras i avtal och beskrivs i vår leverantörsinformation. Det ligger utanför den här sidan.</p>
+
+<h2>Tillstånd</h2>
+
+<p>Webbplatsen ligger på ett delat webbhotell hos Loopia AB. Vi förfogar över innehållet och konfigurationen i vårt eget konto men inte över servern, plattformen eller nätverket. Tillståndet nedan sträcker sig därför bara så långt som vår rådighet räcker.</p>
+
+<p>Inom den ramen får du undersöka webbplatsen på ett sätt som annars hade kunnat bedömas som dataintrång enligt 4 kap. 9 c § brottsbalken. Rättsligt vilar tillståndet på att straffansvar förutsätter olovlighet och att den som förfogar över uppgifterna kan samtycka.</p>
+
+<p>För Loopias system kan vi inte ge något motsvarande tillstånd. Avtalet med dem förbjuder oss att söka obehörig åtkomst till deras eller deras underleverantörers system. Ansvaret ligger kvar hos oss även när någon annan undersöker webbplatsen. Testning som stör driften kan dessutom leda till att webbplatsen stängs av.</p>
+
+<p>Försök och förberedelse till dataintrång är straffbara om brottet inte är ringa. Utanför ramen ovan finns inget tillstånd och därmed ingenting som skyddar dig.</p>
+
+<h2>Vad som inte omfattas</h2>
+
+<p>Webbplatsen är statisk, utan inloggning, formulär och databas. Angreppsytan är därför liten. En del av det som annars brukar granskas ligger dessutom utanför vår kontroll:</p>
+
+<ul>
+<li><strong>Leverantörens infrastruktur.</strong> Webbhotell, DNS och e-post driftas av tredje part och delas med andra kunder. Vi har varken rådighet över de systemen eller rätt att bjuda in någon till dem. Hittar du något där, vänd dig direkt till leverantören.</li>
+<li><strong>Överbelastningsangrepp</strong> och annan trafikgenererande testning, däribland automatiserad skanning. Trafiken går till en delad plattform och kan drabba andra.</li>
+<li><strong>Social manipulation</strong> riktad mot oss, våra kunder eller våra leverantörer.</li>
+<li><strong>Fysisk säkerhet.</strong></li>
+</ul>
+
+<h2>Så rapporterar du</h2>
+
+<p>Mejla <a href="mailto:info@portalcs.se">info@portalcs.se</a>. Skriv gärna på svenska eller engelska.</p>
+
+<p>En bra rapport innehåller:</p>
+
+<ul>
+<li>vilken adress eller vilken del av webbplatsen det gäller,</li>
+<li>vad du observerade och vilken påverkan du bedömer att det kan få,</li>
+<li>hur problemet återskapas, steg för steg,</li>
+<li>datum och ungefärlig tidpunkt för dina observationer.</li>
+</ul>
+
+<p>Du kan rapportera anonymt. Vi behöver inga kontaktuppgifter för att åtgärda ett problem men utan dem kan vi varken ställa följdfrågor eller berätta när det är löst.</p>
+
+<p>Hur vi behandlar uppgifterna i en rapport beskrivs i vår <a href="integritetspolicy.html">integritetspolicy</a>.</p>
+
+<h2>Vad vi räknar som en sårbarhet</h2>
+
+<p>En sårbarhet är en svaghet som faktiskt går att utnyttja för att påverka konfidentialitet, riktighet eller tillgänglighet. Beskriv därför gärna vad en angripare skulle kunna uppnå, inte bara vad ett verktyg larmar om.</p>
+
+<p>Följande räknar vi inte som sårbarheter i sig men vi läser gärna en rapport som visar konkret påverkan:</p>
+
+<ul>
+<li>utdata från automatiska sårbarhetsverktyg där effekten inte beskrivs,</li>
+<li>HTTP-huvuden som saknas eller andra konfigurationsval, när konsekvensen inte går att påvisa,</li>
+<li>observationer om vår leverantörs delade infrastruktur,</li>
+<li>avsaknad av skydd mot problem som förutsätter funktioner webbplatsen inte har, till exempel inloggning eller formulär.</li>
+</ul>
+
+<h2>Det vi ber dig om</h2>
+
+<ul>
+<li>Testa bara i den omfattning som krävs för att påvisa problemet.</li>
+<li>Läs, ändra, radera eller spara inte uppgifter som inte är dina egna.</li>
+<li>Försämra inte tillgängligheten för andra besökare eller för andra kunder på plattformen.</li>
+<li>Ge oss rimlig tid att åtgärda problemet innan du publicerar. Vi föreslår 90 dagar men diskuterar gärna en annan tidsram om fyndet motiverar det.</li>
+<li>Behandla det du får del av som konfidentiellt och radera det när rapporten är avslutad.</li>
+</ul>
+
+<h2>Om du stöter på personuppgifter</h2>
+
+<p>Röjer problemet personuppgifter ska du avbryta omedelbart. Hämta inte ut mer än vad som krävs för att visa att exponeringen finns. Skicka inte uppgifterna till oss. Beskriv i stället vilken typ av uppgifter det rör sig om och hur de nås.</p>
+
+<p>Markera i ämnesraden att rapporten rör personuppgifter. Då startar vi en särskild rutin med korta tidsfrister.</p>
+
+<h2>Det vi lovar dig</h2>
+
+<p>Portal Cybersecurity är en enskild firma. Tiderna nedan är en förväntan, inte en garanti. De räknas från den dag rapporten når <a href="mailto:info@portalcs.se">info@portalcs.se</a>.</p>
+
+<ul>
+<li>Inom <strong>fem arbetsdagar</strong> bekräftar vi att rapporten har kommit fram.</li>
+<li>Inom <strong>tio arbetsdagar</strong> lämnar vi en första bedömning.</li>
+<li>Vi håller dig informerad om åtgärdsarbetet och meddelar när problemet är löst.</li>
+<li>Behöver rapporten föras vidare till en leverantör sker det med din vetskap. Dina kontaktuppgifter följer med bara om du vill det.</li>
+</ul>
+
+<p>Drar det ut på tiden på grund av semester, sjukdom eller annat hör vi av oss så snart vi kan och meddelar när du kan vänta dig besked. Någon tid för när ett problem ska vara åtgärdat anger vi inte. Den beror på vad som hittas och på vad vår leverantör förfogar över.</p>
+
+<h2>Vad tillståndet inte kan skydda dig mot</h2>
+
+<p>Följer du de här villkoren kommer vi inte att polisanmäla dig, kräva dig på skadestånd eller vidta några andra rättsliga åtgärder mot dig. Vi ser din rapport som en handling i god tro.</p>
+
+<p>Men vi kan bara tala för oss själva:</p>
+
+<ul>
+<li>Dataintrång hör under allmänt åtal. En åklagare kan väcka åtal utan att vi har anmält något. Vårt löfte binder inte det allmänna.</li>
+<li>Tillståndet omfattar inte Loopia, andra leverantörer eller övriga kunder på plattformen. Ett sådant tillstånd har vi ingen rätt att ge.</li>
+<li>Tillståndet sätter inte tvingande lagstiftning ur spel, till exempel dataskyddsreglerna.</li>
+</ul>
+
+<div class="callout">
+<p><strong>Därför är omfattningen snävt skriven.</strong> Inom ramen är risken liten just för att tillståndet finns och gärningen därmed inte är olovlig. Utanför ramen finns ingenting som skyddar dig, varken vårt löfte eller vår välvilja.</p>
+</div>
+
+<h2>Erkännande</h2>
+
+<p>Vi driver inget belöningsprogram och betalar ingen ersättning. En inskickad rapport ger inte rätt till ersättning, uppdrag eller någon annan motprestation.</p>
+
+<p>Vill du bli omnämnd på den här sidan gör vi gärna det. Säg till i rapporten. Du kan ta tillbaka din begäran när som helst.</p>
+
+<h2>Standarder</h2>
+
+<p>ISO/IEC 27002 rekommenderar att en organisation publicerar en kontaktväg för sårbarhetsrapportering. Sidan finns därför inte som en artighet mot den som hittar något, utan som en åtgärd i vårt eget säkerhetsarbete.</p>
+
+<p>Utformningen följer ISO/IEC 29147 för sårbarhetsrapportering och RFC 9116 för security.txt. Arbetet efter en mottagen rapport, med bedömning, åtgärd och uppföljning, behandlas i ISO/IEC 30111 och ligger utanför den här sidan.</p>
+
+<p>Ingen av standarderna är bindande och ingen av dem certifierar oss. Vi hänvisar till dem för att de beskriver vad du som rapportör rimligen kan förvänta dig.</p>
+
+<h2>Ändringar</h2>
+
+<p>Villkoren ägs och beslutas av verksamhetens innehavare. De kan komma att uppdateras. Den gällande versionen finns alltid här, med datum för senaste ändring högst upp. Vi ser över dem minst en gång per år och alltid innan Expires-datumet i security.txt löper ut.</p>
+
+</div>
+</div>
+</article>
+</main>
+<div data-include="footer"></div>
+<script src="js/partials.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

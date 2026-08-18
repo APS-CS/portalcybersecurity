@@ -223,15 +223,48 @@ section { padding: clamp(72px, 11vw, 132px) 0; }
 
 /* ===================== FOOTER ===================== */
 .site-footer { border-top: 1px solid var(--line); padding: 3rem 0 2.5rem; font-size: .92rem; }
-.footer-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; align-items: flex-start; }
-.footer-top .logo { margin-bottom: 0; }
-.footer-nav { display: flex; gap: 2rem; flex-wrap: wrap; }
-.footer-nav a { color: var(--muted); transition: color .15s ease; }
-.footer-nav a:hover { color: var(--accent); }
+.footer-logo { margin-bottom: 2rem; }
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2.5rem 3rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--line-soft);
+}
+.footer-about { margin: 0; max-width: 46ch; color: var(--muted); }
+.footer-head {
+  font-family: var(--font-body); font-size: .95rem; font-weight: 600;
+  letter-spacing: 0; color: var(--ink); margin: 0 0 1.1rem;
+}
+.footer-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .75rem; }
+.footer-list a { color: var(--muted); transition: color .15s ease; }
+.footer-list a:hover { color: var(--accent); }
+
+.footer-social a { display: inline-flex; align-items: center; gap: .7rem; }
+.social-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; flex: none;
+  border: 1px solid var(--line); border-radius: 50%; color: var(--ink);
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+.social-icon svg { width: 17px; height: 17px; }
+.footer-social a:hover .social-icon {
+  background: var(--accent); border-color: var(--accent); color: var(--accent-ink);
+}
+
 .footer-bottom {
   margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line-soft);
   display: flex; justify-content: space-between; flex-wrap: wrap; gap: .8rem;
   color: var(--faint); font-size: .85rem;
+}
+
+@media (max-width: 860px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-about { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
 }
 
 /* ===================== ARTIKELLÄSVY ===================== */
@@ -387,4 +420,4 @@ section { padding: clamp(72px, 11vw, 132px) 0; }
 .articles-more         { margin-top: 2.5rem; }
 .cta-band              { padding-top: 4rem; }
 .footer-bottom--bare   { border-top: 0; padding-top: 0; }
-.articles-empty        { color: var(--muted); padding: 1.8rem 0; } 
+.articles-empty        { color: var(--muted); padding: 1.8rem 0; }

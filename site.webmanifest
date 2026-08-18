@@ -1,7 +1,7 @@
 {
   "name": "Portal Cybersecurity",
   "short_name": "Portal CS",
-  "description": "Praktisk cybersäkerhet för småföretag och privatpersoner.",
+  "description": "Praktisk cybersäkerhet för företag och privatpersoner.",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#FBFBF8",

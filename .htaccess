@@ -64,9 +64,9 @@ AddType text/plain .txt
   Header always set X-Permitted-Cross-Domain-Policies "none"
   Header always unset X-Loopia-Node
 
-  # HSTS — START HÄR (5 minuter). Se README-LOOPIA.md innan du höjer.
+  # HSTS — (24 timmar). Se README-LOOPIA.md innan det höjs.
   # includeSubDomains och preload är MEDVETET utelämnade eftersom
-  # subdomäner planeras. Läs varningen innan du lägger till dem.
+  # subdomäner planeras. Läs varningen innan dem läggs till.
   Header always set Strict-Transport-Security "max-age=86400"
 
   # Ta bort headers som avslöjar plattformsdetaljer.
@@ -93,18 +93,14 @@ AddType text/plain .txt
   </IfModule>
 </Files>
 
-# ---------- 8. Tvinga HTTPS och en enda kanonisk domän ----------
-# Rekommendation: slå hellre på "Tvinga SSL" i Loopia Kundzon och
-# lämna detta block bortkommenterat. Loopia terminerar TLS i en
-# proxy, så %{HTTPS} är opålitligt — därav X-Loopia-SSL.
-#
-# <IfModule mod_rewrite.c>
-#   RewriteEngine On
-#   RewriteCond %{HTTP:X-Loopia-SSL} off
-#   RewriteRule ^(.*)$ https://portalcs.se/$1 [R=301,L]
-#   RewriteCond %{HTTP_HOST} ^www\.portalcs\.se$ [NC]
-#   RewriteRule ^(.*)$ https://portalcs.se/$1 [R=301,L]
-# </IfModule>
+# ---------- 8. Uppladdning och nekande ----------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Neka allt under en dold mapp (/.git/, /.vscode/), men släpp igenom
+  # /.well-known/ som måste vara publik enligt RFC 8615.
+  RewriteCond %{REQUEST_URI} (^|/)\.(?!well-known(/|$))
+  RewriteRule ^ - [F,L]
+</IfModule>
 
 # ---------- 9. Cachning ----------
 <IfModule mod_expires.c>
