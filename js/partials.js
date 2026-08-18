@@ -40,7 +40,7 @@
 
   // Sociala kanaler. Ikonerna ligger som inbäddad SVG, inga externa anrop.
   const SOCIAL = [
-    ['LinkedIn', 'https://www.linkedin.com/company/portal-cybersecurity/',
+    ['LinkedIn', 'https://www.linkedin.com/company/portalcybersecurity/',
       '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.94 5.5a1.94 1.94 0 1 1-3.88 0 1.94 1.94 0 0 1 3.88 0zM3.4 8.9h3.1V21H3.4zm5.6 0h2.97v1.65h.04c.41-.78 1.42-1.6 2.93-1.6 3.13 0 3.71 2.06 3.71 4.74V21h-3.1v-5.66c0-1.35-.02-3.09-1.88-3.09-1.88 0-2.17 1.47-2.17 2.99V21H9z"/></svg>'],
     ['Facebook', 'https://www.facebook.com/portalcybersecurity',
       '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.9 21v-8.2h2.75l.41-3.19H13.9V7.57c0-.92.26-1.55 1.58-1.55h1.69V3.17c-.29-.04-1.3-.13-2.47-.13-2.44 0-4.11 1.49-4.11 4.23v2.36H7.83v3.19h2.76V21z"/></svg>'],
