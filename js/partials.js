@@ -31,7 +31,7 @@
   const navLinks = () =>
     NAV.map(([t, h]) => `<li><a href="${base}${h}">${t}</a></li>`).join('\n          ');
 
-  // Sidfotens egna länkar (ska INTE dubblera toppmenyn).
+  // Sidfotens egna länkar.
   const FOOTER_LINKS = [
     ['Integritetspolicy',      'integritetspolicy.html'],
     ['Sårbarhetsrapportering', 'sarbarhetsrapportering.html'],
@@ -51,7 +51,7 @@
   const OM_TEXT =
     'Portal Cybersecurity är en oberoende konsultverksamhet inom informations- och '
   + 'cybersäkerhet med bas i Stockholm. Vi arbetar med styrning, regelefterlevnad och '
-  + 'beredskap, och deltar i standardiseringsarbetet inom SIS tekniska kommitté TK 318.';
+  + 'beredskap.';
 
   const ICON_MENU =
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>';
