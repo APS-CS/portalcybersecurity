@@ -3,7 +3,7 @@
    =================================================================
    Lägg till en ny artikel genom att lägga till ett objekt högst upp
    i listan nedan (nyast först). Skapa sedan en HTML-fil i mappen
-   /artiklar/ med samma "url". Använd artiklar/_mall.html som mall.
+   /artiklar/ med samma "url". Använd intern artiklar/_mall.html som mall.
    ================================================================= */
 const ARTIKLAR = [
   {

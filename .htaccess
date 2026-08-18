@@ -1,5 +1,5 @@
 # =================================================================
-# PORTAL CYBERSECURITY — APACHE-KONFIGURATION (Loopia UNIX / Apache 2.4)
+# PORTAL CYBERSECURITY
 # =================================================================
 # OBS: Loopias servrar saknar mod_filter. Använd ALDRIG
 # AddOutputFilterByType här — gzip/Brotli är redan påslaget.
@@ -8,11 +8,16 @@
 # =================================================================
 
 # ---------- 1. Ingen kataloglistning ----------
-# Apache listar annars innehållet i /js/, /css/ och /bilder/.
+# Loopia listar annars innehållet i /js/, /css/ och /bilder/.
 Options -Indexes
 
 # ---------- 2. Egen felsida ----------
+ErrorDocument 400 /404.html
+ErrorDocument 403 /404.html
 ErrorDocument 404 /404.html
+ErrorDocument 405 /404.html
+ErrorDocument 410 /404.html
+ErrorDocument 500 /404.html
 
 # ---------- 3. Rotfallback för ikoner ----------
 # Alla bilder ligger i /bilder/, men vissa klienter hämtar dessa
@@ -24,6 +29,10 @@ ErrorDocument 404 /404.html
   RedirectMatch 301 ^/favicon\.svg$ /bilder/favicon.svg
   RedirectMatch 301 ^/apple-touch-icon(-precomposed)?\.png$ /bilder/apple-touch-icon.png
   RedirectMatch 301 ^/og-image\.png$ /bilder/og-image.png
+  RedirectMatch 301 ^/(artiklar|integritetspolicy|leverantorsinfo|sarbarhetsrapportering)$ /$1.html
+  RedirectMatch 301 ^/index\.html$ /
+  RedirectMatch 301 ^/artiklar/$ /artiklar.html
+  RedirectMatch 404 ^/(js|css|bilder)/?$
 </IfModule>
 
 # ---------- 4. Teckenkodning ----------
@@ -38,7 +47,7 @@ AddType text/plain .txt
 </FilesMatch>
 
 # Utvecklingsfiler som inte hör hemma på en publik server.
-<FilesMatch "^(_config\.yml|_headers|README\.md|SECURITY\.md|\.nojekyll)$">
+<FilesMatch "^(_config\.yml|_headers|README\.md|SECURITY\.nojekyll)$">
   Require all denied
 </FilesMatch>
 
@@ -82,7 +91,7 @@ AddType text/plain .txt
   <FilesMatch "\.(js|css|svg|webmanifest|json)$">
     Header always set X-Robots-Tag "noindex"
   </FilesMatch>
-  <FilesMatch "^(logo|logo-icon|logo-stacked|favicon|icon-192|icon-512|apple-touch-icon|js|css|svg|webmanifest|json|txt)\.">
+  <FilesMatch "\.(js|css|svg|webmanifest|json|txt|png|ico)$">
     Header always set X-Robots-Tag "noindex"
   </FilesMatch>
 </IfModule>
@@ -100,8 +109,11 @@ AddType text/plain .txt
   RewriteEngine On
   # Neka allt under en dold mapp (/.git/, /.vscode/), men släpp igenom
   # /.well-known/ som måste vara publik enligt RFC 8615.
-  RewriteCond %{REQUEST_URI} (^|/)\.(?!well-known(/|$))
-  RewriteRule ^ - [F,L]
+  RewriteCond %{REQUEST_URI} !^/$
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [R=404,L]
+    # Kataloger svarar 404, inte 403 eller en omdirigering. Gäller alla
+    # kataloger, även framtida, utan att de räknas upp.    
 </IfModule>
 
 # ---------- 9. Cachning ----------

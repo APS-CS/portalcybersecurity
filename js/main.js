@@ -15,9 +15,12 @@ const esc = (s) => String(s).replace(/[&<>"']/g, c =>
 
 const safeUrl = (raw) => {
   const u = String(raw).trim();
+  // Ordningen är avsiktlig: kända farliga former avvisas först,
+  // sedan tillåtlistan, sist kolonkontrollen. Kolonkontrollen får
+  // inte flyttas upp, https: och mailto: innehåller båda kolon.
   if (u.startsWith('//') || u.includes('\\')) return '#';
   if (/^(https:|mailto:)/i.test(u)) return u;
-  if (u.includes(':') || u.includes('\\') || u.startsWith('//')) return '#';
+  if (u.includes(':')) return '#';
   return u;
 };
 

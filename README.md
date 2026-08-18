@@ -37,8 +37,8 @@ MITRE ATT&CK som utgångspunkt:
 
 | Skydd | Vad det gör |
 |---|---|
-| Strikt Content-Security-Policy på varje sida | Allt innehåll får bara laddas från egna domänen; `connect-src 'none'` gör att inte ens injicerad kod kan skicka data någonstans, låg risk men implementeras för framtida ändringar |
-| Trusted Types (`portal-html`-policy) | Webbläsaren blockerar all HTML-skrivning till DOM som inte går via sajtens egen policy — eliminerar DOM-XSS-klassen i stödda webbläsare |
+| Strikt Content-Security-Policy på varje sida | Allt innehåll får bara laddas från egen domän. `connect-src 'none'` stänger fetch, XHR, WebSocket och beacon, alltså de vanliga vägarna att skicka ut data i bakgrunden. Navigering går inte att stänga med CSP, det finns inget direktiv för det som webbläsare implementerar. |
+| Trusted Types (`portal-html`-policy) | I webbläsare med stöd vägrar DOM ta emot HTML som inte gått genom sajtens namngivna policy. All HTML-skrivning samlas därmed på ett fåtal granskningsbara ställen i `js/`. Policyn sanerar inte, den släpper igenom det den får. Skyddet mot främmande kod ligger i `script-src 'self'`, skyddet mot inbäddad markup i artikeldata i `esc()` på raden nedan. |
 | Escaping + URL-validering (`esc`/`safeUrl` i `js/main.js`) | All artikeldata escapas innan rendering; endast `https:`/`mailto:` och relativa länkar släpps igenom |
 | Systemtypsnitt — inga typsnittsfiler | Besökaren laddar ingenting; CSP:n sätter `font-src 'none'` |
 | Referrer-Policy + clickjacking-spärr | Begränsar informationsläckage och inramning av sajten |
@@ -54,7 +54,7 @@ Hittar du ett säkerhetsproblem? Se [SECURITY.md](SECURITY.md).
 ├── artiklar.html                  ← Artikelöversikt med kategorifilter
 ├── integritetspolicy.html         ← Så här behandlar vi dina uppgifter
 ├── leverantorsinfo.html           ← Information till potentiella kunder/partners
-├── sarbarhetsrapportering.html    ← Informatiom om hur sårbarhetsrapportering mot webbplatsen
+├── sarbarhetsrapportering.html    ← Villkor för att rapportera sårbarheter i webbplatsen
 ├── css/
 │   └── style.css                  ← All design. Varumärkesfärger + typsnitt överst.
 ├── js/
