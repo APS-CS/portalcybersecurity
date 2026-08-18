@@ -37,7 +37,7 @@ MITRE ATT&CK som utgångspunkt:
 
 | Skydd | Vad det gör |
 |---|---|
-| Strikt Content-Security-Policy på varje sida | Allt innehåll får bara laddas från egna domänen; `connect-src 'none'` gör att inte ens injicerad kod kan skicka data någonstans |
+| Strikt Content-Security-Policy på varje sida | Allt innehåll får bara laddas från egna domänen; `connect-src 'none'` gör att inte ens injicerad kod kan skicka data någonstans, låg risk men implementeras för framtida ändringar |
 | Trusted Types (`portal-html`-policy) | Webbläsaren blockerar all HTML-skrivning till DOM som inte går via sajtens egen policy — eliminerar DOM-XSS-klassen i stödda webbläsare |
 | Escaping + URL-validering (`esc`/`safeUrl` i `js/main.js`) | All artikeldata escapas innan rendering; endast `https:`/`mailto:` och relativa länkar släpps igenom |
 | Systemtypsnitt — inga typsnittsfiler | Besökaren laddar ingenting; CSP:n sätter `font-src 'none'` |
