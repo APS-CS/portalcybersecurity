@@ -15,7 +15,8 @@ const esc = (s) => String(s).replace(/[&<>"']/g, c =>
 
 const safeUrl = (raw) => {
   const u = String(raw).trim();
-  if (/^(https?:|mailto:)/i.test(u)) return u;
+  if (u.startsWith('//') || u.includes('\\')) return '#';
+  if (/^(https:|mailto:)/i.test(u)) return u;
   if (u.includes(':') || u.includes('\\') || u.startsWith('//')) return '#';
   return u;
 };

@@ -1,7 +1,7 @@
 # Säkerhetspolicy
 
 Tack för att du hjälper till att hålla Portal Cybersecurity säkert.
-Mer information: **portalcs.se/security-policy**
+Mer information: **portal.cs/sarbarhetsrapportering.html**
 
 ## Rapportera en sårbarhet
 

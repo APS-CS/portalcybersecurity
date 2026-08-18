@@ -50,26 +50,27 @@ Hittar du ett säkerhetsproblem? Se [SECURITY.md](SECURITY.md).
 ## Struktur
 
 ```
-├── index.html                ← Startsidan
-├── artiklar.html             ← Artikelöversikt med kategorifilter
-├── integritetspolicy.html    ← Så här behandlar vi dina uppgifter
+├── index.html                     ← Startsidan
+├── artiklar.html                  ← Artikelöversikt med kategorifilter
+├── integritetspolicy.html         ← Så här behandlar vi dina uppgifter
+├── leverantorsinfo.html           ← Information till potentiella kunder/partners
+├── sarbarhetsrapportering.html    ← Informatiom om hur sårbarhetsrapportering mot webbplatsen
 ├── css/
-│   └── style.css             ← All design. Varumärkesfärger + typsnitt överst.
+│   └── style.css                  ← All design. Varumärkesfärger + typsnitt överst.
 ├── js/
-│   ├── partials.js           ← Sidhuvud, sidfot och CTA — definieras EN gång här
-│   ├── articles.js           ← Artikeldata. Nya artiklar registreras här.
-│   └── main.js               ← Meny, artikelrendering, filter, animationer
+│   ├── partials.js                ← Sidhuvud, sidfot och CTA — definieras EN gång här
+│   ├── articles.js                ← Artikeldata. Nya artiklar registreras här.
+│   └── main.js                    ← Meny, artikelrendering, filter, animationer
 ├── artiklar/
-│   ├── _mall.html            ← Mall: kopiera denna för varje ny artikel
-│   └── *.html                ← Publicerade artiklar
-├── bilder/                   ← ALLA bilder: logotyper, favicon, ikoner, delningsbild
-├── site.webmanifest          ← PWA-manifest (ikonsökvägar pekar in i bilder/)
-├── .well-known/security.txt  ← Säkerhetskontakt (RFC 9116)
-├── .htaccess                 ← Apache-konfiguration: headers, blockeringar, cache
-├── 404.html                  ← Egen felsida (rotabsoluta länkar, fungerar på alla djup)
-├── robots.txt                ← Indexeringsregler + pekare till sitemap
-├── sitemap.xml               ← De sidor som ska indexeras — inget annat
-└── SECURITY.md               ← Hur sårbarheter rapporteras (endast repo, laddas ej upp)
+│   └── *.html                     ← Publicerade artiklar
+├── bilder/                        ← ALLA bilder: logotyper, favicon, ikoner, delningsbild
+├── site.webmanifest               ← PWA-manifest (ikonsökvägar pekar in i bilder/)
+├── .well-known/security.txt       ← Säkerhetskontakt (RFC 9116)
+├── .htaccess                      ← Apache-konfiguration: headers, blockeringar, cache
+├── 404.html                       ← Egen felsida (rotabsoluta länkar, fungerar på alla djup)
+├── robots.txt                     ← Indexeringsregler + pekare till sitemap
+├── sitemap.xml                    ← De sidor som ska indexeras — inget annat
+└── SECURITY.md                    ← Hur sårbarheter rapporteras (endast repo, laddas ej upp)
 ```
 
 ## Drift

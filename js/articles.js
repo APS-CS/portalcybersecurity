@@ -16,7 +16,7 @@ const ARTIKLAR = [
   },
   {
     titel: "Lagspelare i ett väldigt stort lag",
-    utdrag: "Civilt försvar handlar sällan om hjälteinsatser. Det handlar om en vardag som fungerar även när något stör och om vad du och jag faktiskt kan göra.",
+    utdrag: "Civilt försvar handlar sällan om hjälteinsatser. Det handlar om en vardag som fungerar även när något stör och om vad vi faktiskt kan göra.",
     kategori: "Beredskap",
     datum: "2026-07-16",
     lasetid: "4 min",

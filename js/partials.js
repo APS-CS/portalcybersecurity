@@ -14,7 +14,7 @@
     ? trustedTypes.createPolicy('portal-html', { createHTML: (s) => s })
     : null;
   const tt = (s) => (policy ? policy.createHTML(s) : s);
-  window.PortalTT = tt; // delas med main.js
+  window.PortalTT = tt; // delas med main.js, överväger att slå ihop partials med main. 
 
   // Tillåten bas: '' (rot), '../' (artiklar) eller '/' (felsidor som
   // kan serveras på valfritt djup, t.ex. 404). Annat faller tillbaka till ''.
