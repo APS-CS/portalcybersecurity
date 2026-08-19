@@ -38,24 +38,8 @@ ErrorDocument 500 /404.html
 AddDefaultCharset UTF-8
 AddType text/plain .txt
 
-# ---------- 5. Blockera filer som inte ska nås ----------
-# Dolda filer (.htaccess, .git, .env). Filer i /.well-known/ berörs
-# inte, eftersom regeln matchar filnamnet och inte katalogen.
-<FilesMatch "^\.">
-  Require all denied
-</FilesMatch>
 
-# Utvecklingsfiler som inte hör hemma på en publik server.
-<FilesMatch "^(_config\.yml|_headers|README\.md|SECURITY\.nojekyll)$">
-  Require all denied
-</FilesMatch>
-
-# Artikelmallen — publiceras inte längre av Jekyll här.
-<Files "_mall.html">
-  Require all denied
-</Files>
-
-# ---------- 6. Säkerhetsheaders ----------
+# ---------- 5. Säkerhetsheaders ----------
 <IfModule mod_headers.c>
   # Full CSP. Skillnaden mot meta-taggen är frame-ancestors, som
   # bara kan sättas via HTTP-header.
@@ -85,7 +69,7 @@ AddType text/plain .txt
 
 </IfModule>
 
-# ---------- 7. Indexering: bara sidorna i sitemap.xml ----------
+# ---------- 6. Indexering: bara sidorna i sitemap.xml ----------
 <IfModule mod_headers.c>
   <FilesMatch "\.(js|css|svg|webmanifest|json)$">
     Header always set X-Robots-Tag "noindex"
@@ -103,19 +87,22 @@ AddType text/plain .txt
   </IfModule>
 </Files>
 
-# ---------- 8. Uppladdning och nekande ----------
+# ---------- 7. Uppladdning och nekande ----------
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  # Neka allt under en dold mapp (/.git/, /.vscode/), men släpp igenom
-  # /.well-known/ som måste vara publik enligt RFC 8615.
+  RewriteCond %{REQUEST_URI} (^|/)\.(?!well-known(/|$))
+  RewriteRule ^ - [R=404,L]
+
+  # Utvecklingsfiler utan inledande punkt.
+  RewriteRule (^|/)(_mall\.html|README\.md|SECURITY\.md|_config\.yml|_headers|\.nojekyll)$ - [R=404,L]
+
+  # Kataloger (även framtida) svarar 404 i stället för listning eller omdirigering.
   RewriteCond %{REQUEST_URI} !^/$
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [R=404,L]
-    # Kataloger svarar 404, inte 403 eller en omdirigering. Gäller alla
-    # kataloger, även framtida, utan att de räknas upp.    
 </IfModule>
 
-# ---------- 9. Cachning ----------
+# ---------- 8. Cachning ----------
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/html "access plus 0 seconds"
