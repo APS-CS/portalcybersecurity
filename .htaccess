@@ -23,13 +23,14 @@ ErrorDocument 500 /404.html
 # Alla bilder ligger i /bilder/, men vissa klienter hämtar dessa
 # sökvägar direkt från domänroten utan att läsa HTML-taggarna:
 # webbläsare och RSS-läsare tar /favicon.ico, iOS tar
-# /apple-touch-icon.png. Utan raderna nedan blir det 404 i loggen.
+# /apple-touch-icon.png. Utan raderna nedan blir det 404 i loggen. Lägger även till eventuella /X.html sidor
 <IfModule mod_alias.c>
-  RedirectMatch 301 ^/favicon\.ico$ /bilder/favicon.ico
-  RedirectMatch 301 ^/favicon\.svg$ /bilder/favicon.svg
-  RedirectMatch 301 ^/apple-touch-icon(-precomposed)?\.png$ /bilder/apple-touch-icon.png
-  RedirectMatch 301 ^/og-image\.png$ /bilder/og-image.png
-  RedirectMatch 301 ^/(artiklar|integritetspolicy|leverantorsinfo|sarbarhetsrapportering)$ /$1.html
+  RedirectMatch 301 ^/favicon\.ico$ https://portalcs.se/bilder/favicon.ico
+  RedirectMatch 301 ^/favicon\.svg$ https://portalcs.se/bilder/favicon.svg
+  RedirectMatch 301 ^/apple-touch-icon(-precomposed)?\.png$ https://portalcs.se/bilder/apple-touch-icon.png
+
+  RedirectMatch 301 ^/og-image\.png$ https://portalcs.se/bilder/og-image.png
+  RedirectMatch 301 ^/(integritetspolicy|leverantorsinfo|sarbarhetsrapportering)$ https://portalcs.se/$1.html
   RedirectMatch 404 ^/(js|css|bilder)/?$
 </IfModule>
 
