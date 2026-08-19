@@ -30,7 +30,6 @@ ErrorDocument 500 /404.html
   RedirectMatch 301 ^/apple-touch-icon(-precomposed)?\.png$ /bilder/apple-touch-icon.png
   RedirectMatch 301 ^/og-image\.png$ /bilder/og-image.png
   RedirectMatch 301 ^/(artiklar|integritetspolicy|leverantorsinfo|sarbarhetsrapportering)$ /$1.html
-  RedirectMatch 301 ^/artiklar/$ /artiklar.html
   RedirectMatch 404 ^/(js|css|bilder)/?$
 </IfModule>
 
@@ -95,6 +94,10 @@ AddType text/plain .txt
 
   # Utvecklingsfiler utan inledande punkt.
   RewriteRule (^|/)(_mall\.html|README\.md|SECURITY\.md|_config\.yml|_headers|\.nojekyll)$ - [R=404,L]
+
+  # artiklar bor i artiklar.html; mappen artiklar/ innehåller bara artiklarna.
+  # Måste ligga före katalogregeln, annars fångar -d den och ger 404.
+  RewriteRule ^artiklar/?$ https://portalcs.se/artiklar.html [R=301,L]
 
   # Kataloger (även framtida) svarar 404 i stället för listning eller omdirigering.
   RewriteCond %{REQUEST_URI} !^/$
